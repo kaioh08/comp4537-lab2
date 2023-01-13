@@ -8,7 +8,6 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true })); // read URL encoded body
 
 app.post('/chatbot', (req, res) => {
-	res.headers("access-control-allow-origin", "*")
 	const message = req.body.message;
 	const number = message.match(/\d+/);
 	if (number) {
