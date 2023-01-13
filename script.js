@@ -1,11 +1,14 @@
 const express = require('express');
 const app = express();
 const fetch = require('node-fetch');
+const cors = require('cors');
 app.use(express.json());
 app.use(express.static('public'));
+app.use(cors());
 app.use(express.urlencoded({ extended: true })); // read URL encoded body
 
 app.post('/chatbot', (req, res) => {
+	header('Access-Control-Allow-Origin: *')
 	const message = req.body.message;
 	const number = message.match(/\d+/);
 	if (number) {
